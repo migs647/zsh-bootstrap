@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/garvc008/.oh-my-zsh"
+export ZSH="USERZ/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,17 +98,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+##
 # command aliases
+
+# Carthage
 alias cbs='carthage bootstrap --platform ios --cache-builds --new-resolver'
 alias cbsnc='carthage bootstrap --platform ios --new-resolver'
 alias cup='carthage update --new-resolver'
 alias cclean='rm -rf ./Carthage/Build'
 alias cbv='carthage build --no-skip-current'
 alias cb='carthage build --platform ios --cache-builds'
+
+# Zsh
 alias zconfig='vi ~/.zshrc'
 alias byebye='sudo /usr/local/McAfee/AntiMalware/VSControl stopoas'
 alias notan='sudo launchctl remove com.tanium.taniumclient'
-alias filterlogs='sudo log config --subsystem com.disney.PhotoPass --mode "level:debug"'
+
+# filter os_log
+# pass bundle id like com.disney.mdx as a parameter
+function filterlogs() {
+	sudo log config --subsystem "$1" --mode "level:debug"
+}
 
 # Git Methods
 function findline() {
@@ -118,5 +128,6 @@ function findline() {
 function findgitfile() {
 	git log --diff-filter=A -S"$1"
 }
+
 # Environmental Variables
-export FASTLANE_USER=cody.garvin@disney.com
+export FASTLANE_USER=cody@servalsoft.net
