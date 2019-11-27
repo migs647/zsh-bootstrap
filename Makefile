@@ -9,13 +9,14 @@ changeshell:
 
 downloadohmyzsh:
 	echo "Downloading OhMyZsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 copytheme:
 	echo "Copying White Themes"
 	cp oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
+	cp .zshrc ~/
 	echo "Updating .zshrc"
-	updatehome
+	$(MAKE) updatehome
 
 updatehome:
 	sed -i "" "s|USERZ|${HOME}|g" ".zshrc"
