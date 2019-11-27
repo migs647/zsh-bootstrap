@@ -19,7 +19,7 @@ copytheme:
 	$(MAKE) updatehome
 
 updatehome:
-	sed -i "" "s|USERZ|${HOME}|g" "~.zshrc"
+	sed -i "" "s|USERZ|${HOME}|g" ~/.zshrc
 
 installxcversion:
 	sudo gem install xcode-install
