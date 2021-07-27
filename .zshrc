@@ -131,3 +131,4 @@ function findgitfile() {
 
 # Environmental Variables
 export FASTLANE_USER=<email>
+export XCODE_INSTALL_USER=<email>
